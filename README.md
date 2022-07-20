@@ -3,7 +3,7 @@
 All [COSE](https://www.rfc-editor.org/authors/rfc9052.html) structures in a
 single [CDDL](https://datatracker.ietf.org/doc/rfc8610/) [file](rfc9052.cddl).
 
-The CDDL is extracted by the RFC document using these commands:
+The CDDL is extracted from the RFC document using these commands:
 
 ```sh
 curl https://www.rfc-editor.org/authors/rfc9052.xml \
