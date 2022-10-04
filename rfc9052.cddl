@@ -1,3 +1,4 @@
+
 start = COSE_Messages / COSE_Key / COSE_KeySet / Internal_Types
 
 ; This is defined to make the tool quieter:
@@ -9,7 +10,7 @@ values = any
 
 
 COSE_Messages = COSE_Untagged_Message / COSE_Tagged_Message
-      
+
 COSE_Untagged_Message = COSE_Sign / COSE_Sign1 /
     COSE_Encrypt / COSE_Encrypt0 /
     COSE_Mac / COSE_Mac0
@@ -38,8 +39,8 @@ Generic_Headers = (
     ? 2 => [+label],    ; criticality
     ? 3 => tstr / int,  ; content type
     ? 4 => bstr,        ; key identifier
-    ? 5 => bstr,        ; IV
-    ? 6 => bstr         ; Partial IV
+    ? ( 5 => bstr //    ; IV
+        6 => bstr )     ; Partial IV
 )
 
 
@@ -54,7 +55,7 @@ COSE_Sign = [
 
 
 COSE_Signature =  [
-    Headers,      
+    Headers,
     signature : bstr
 ]
 
@@ -88,7 +89,7 @@ COSE_Encrypt = [
 ]
 
 
-COSE_recipient = [    
+COSE_recipient = [
     Headers,
     ciphertext : bstr / nil,
     ? recipients : [+COSE_recipient]
